@@ -118,10 +118,16 @@ def parse_query(query: str) -> Dict[str, Any]:
     clean_text = re.sub(r"^(?:what did|what was|what were|show me|find|get|tell me about|where did we)\s+", "", clean_text, flags=re.IGNORECASE)
     clean_text = re.sub(r"\b(?:say about|suggest for|talk about|recommend regarding|discuss about|think of|propose for|finally decide to|decide to)\b", "", clean_text, flags=re.IGNORECASE)
     clean_text = re.sub(r"\b(?:messages? from|from)\s+[A-Za-z]+(?:\s+[A-Za-z]+)?\b", "", clean_text, flags=re.IGNORECASE)
-    clean_text = re.sub(r"\b[A-Za-z]+(?:'s)?\s+(?:suggestion|thought|budget|opinion|say|take)\b", "", clean_text, flags=re.IGNORECASE)
+    clean_text = re.sub(r"\b[A-Za-z]+(?:'s)?\s+(?:suggestion|thought|opinion|take)\b", "", clean_text, flags=re.IGNORECASE)
     # Remove temporal phrases from embedding query text
     clean_text = re.sub(r"\b(?:in|during|for|around)\s+(?:first week of|last week of|mid\s+)?(?:october|november|december|january|february|march|oct|nov|dec|jan|feb|mar)(?:\s+\d{4})?\b", "", clean_text, flags=re.IGNORECASE)
     clean_text = re.sub(r"\b(?:last month|last week|first week|this week)\b", "", clean_text, flags=re.IGNORECASE)
+
+    # If an author was detected, strip the author's name/aliases from clean_text
+    if detected_sender:
+        for alias in sorted(PARTICIPANT_ALIASES.keys(), key=lambda x: -len(x)):
+            clean_text = re.sub(r"\b" + re.escape(alias) + r"(?:'s)?\b", "", clean_text, flags=re.IGNORECASE)
+
     clean_text = re.sub(r"[?!.,;:]+", " ", clean_text).strip()
 
     # 4. Semantic Intent Expansion for conversational retrieval
@@ -160,9 +166,9 @@ def parse_query(query: str) -> Dict[str, Any]:
         # Append distinct expansion terms to enrich semantic representation
         unique_terms = [t for t in expansion_terms if t not in clean_text.lower()]
         if unique_terms:
-            semantic_query = f"{clean_text} {' '.join(unique_terms[:6])}"
+            semantic_query = f"{clean_text} {' '.join(unique_terms[:6])}".strip()
 
-    if len(clean_text.split()) < 2:
+    if not clean_text or len(clean_text.split()) < 1:
         clean_text = raw_query
 
     return {

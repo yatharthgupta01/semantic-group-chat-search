@@ -1,0 +1,872 @@
+{
+  "summary": {
+    "semantic": {
+      "count": 15,
+      "recall@1": 0.5333,
+      "recall@5": 0.6667,
+      "recall@10": 0.6667,
+      "mrr": 0.58
+    },
+    "attributed": {
+      "count": 10,
+      "recall@1": 0.5,
+      "recall@5": 0.7,
+      "recall@10": 0.8,
+      "mrr": 0.61
+    },
+    "temporal": {
+      "count": 10,
+      "recall@1": 0.8,
+      "recall@5": 0.8,
+      "recall@10": 0.8,
+      "mrr": 0.8
+    },
+    "zero_overlap": {
+      "count": 10,
+      "recall@1": 0.5,
+      "recall@5": 0.6,
+      "recall@10": 0.7,
+      "mrr": 0.5311
+    },
+    "overall": {
+      "count": 45,
+      "recall@1": 0.5778,
+      "recall@5": 0.6889,
+      "recall@10": 0.7333,
+      "mrr": 0.6247
+    }
+  },
+  "total_queries": 45,
+  "elapsed_seconds": 10.52,
+  "timestamp": "2026-09-08T11:32:00Z",
+  "details": [
+    {
+      "id": "eval_sem_01",
+      "query": "Where did we finally decide to stay for the trip?",
+      "category": "semantic",
+      "ground_truth": [
+        "msg_02281"
+      ],
+      "retrieved_top3": [
+        "msg_02281",
+        "msg_02270",
+        "msg_01628"
+      ],
+      "hit_rank": 1,
+      "r1": 1.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "eval_sem_02",
+      "query": "What venue was chosen for the celebration bash?",
+      "category": "semantic",
+      "ground_truth": [
+        "msg_01641"
+      ],
+      "retrieved_top3": [
+        "msg_01625",
+        "msg_01641",
+        "msg_01619"
+      ],
+      "hit_rank": 2,
+      "r1": 0.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 0.5
+    },
+    {
+      "id": "eval_sem_03",
+      "query": "Which monitor was selected for purchase?",
+      "category": "semantic",
+      "ground_truth": [
+        "msg_01161"
+      ],
+      "retrieved_top3": [
+        "msg_01150",
+        "msg_01152",
+        "msg_00007"
+      ],
+      "hit_rank": 5,
+      "r1": 0.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 0.2
+    },
+    {
+      "id": "eval_sem_04",
+      "query": "What food was planned for the anniversary party?",
+      "category": "semantic",
+      "ground_truth": [
+        "msg_01641",
+        "msg_01630",
+        "msg_01632"
+      ],
+      "retrieved_top3": [
+        "msg_00243",
+        "msg_01539",
+        "msg_01751"
+      ],
+      "hit_rank": null,
+      "r1": 0.0,
+      "r5": 0.0,
+      "r10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "id": "eval_sem_05",
+      "query": "Who took responsibility for DJ and party music?",
+      "category": "semantic",
+      "ground_truth": [
+        "msg_01633"
+      ],
+      "retrieved_top3": [
+        "msg_01633",
+        "msg_01626",
+        "msg_01649"
+      ],
+      "hit_rank": 1,
+      "r1": 1.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "eval_sem_06",
+      "query": "Who is handling anniversary cake and decor?",
+      "category": "semantic",
+      "ground_truth": [
+        "msg_01634"
+      ],
+      "retrieved_top3": [
+        "msg_01634",
+        "msg_01647",
+        "msg_01632"
+      ],
+      "hit_rank": 1,
+      "r1": 1.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "eval_sem_07",
+      "query": "What were the travel dates discussed for Goa?",
+      "category": "semantic",
+      "ground_truth": [
+        "msg_02258",
+        "msg_02255"
+      ],
+      "retrieved_top3": [
+        "msg_01936",
+        "msg_00612",
+        "msg_00476"
+      ],
+      "hit_rank": null,
+      "r1": 0.0,
+      "r5": 0.0,
+      "r10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "id": "eval_sem_08",
+      "query": "What AI hackathon topic did the team choose?",
+      "category": "semantic",
+      "ground_truth": [
+        "msg_00029"
+      ],
+      "retrieved_top3": [
+        "msg_00027",
+        "msg_00222",
+        "msg_00011"
+      ],
+      "hit_rank": null,
+      "r1": 0.0,
+      "r5": 0.0,
+      "r10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "id": "eval_sem_09",
+      "query": "What movie is getting re-released in IMAX?",
+      "category": "semantic",
+      "ground_truth": [
+        "msg_00004"
+      ],
+      "retrieved_top3": [
+        "msg_00004",
+        "msg_00005",
+        "msg_03993"
+      ],
+      "hit_rank": 1,
+      "r1": 1.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "eval_sem_10",
+      "query": "What bakery was recommended for Sunday brunch?",
+      "category": "semantic",
+      "ground_truth": [
+        "msg_00024"
+      ],
+      "retrieved_top3": [
+        "msg_00023",
+        "msg_00523",
+        "msg_03219"
+      ],
+      "hit_rank": null,
+      "r1": 0.0,
+      "r5": 0.0,
+      "r10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "id": "eval_sem_11",
+      "query": "Why was the router restarted?",
+      "category": "semantic",
+      "ground_truth": [
+        "msg_00098",
+        "msg_00095"
+      ],
+      "retrieved_top3": [
+        "msg_00098",
+        "msg_00735",
+        "msg_02503"
+      ],
+      "hit_rank": 1,
+      "r1": 1.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "eval_sem_12",
+      "query": "What book on money or personal finance was suggested?",
+      "category": "semantic",
+      "ground_truth": [
+        "msg_00065"
+      ],
+      "retrieved_top3": [
+        "msg_00065",
+        "msg_02281",
+        "msg_00017"
+      ],
+      "hit_rank": 1,
+      "r1": 1.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "eval_sem_13",
+      "query": "What outdoor river rafting plan was discussed?",
+      "category": "semantic",
+      "ground_truth": [
+        "msg_00019"
+      ],
+      "retrieved_top3": [
+        "msg_00019",
+        "msg_00020",
+        "msg_02275"
+      ],
+      "hit_rank": 1,
+      "r1": 1.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "eval_sem_14",
+      "query": "What went wrong with the coffee vending machine?",
+      "category": "semantic",
+      "ground_truth": [
+        "msg_00013"
+      ],
+      "retrieved_top3": [
+        "msg_00013",
+        "msg_03834",
+        "msg_00577"
+      ],
+      "hit_rank": 1,
+      "r1": 1.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "eval_sem_15",
+      "query": "Who bowled yorkers in the death overs of the cricket match?",
+      "category": "semantic",
+      "ground_truth": [
+        "msg_00042"
+      ],
+      "retrieved_top3": [
+        "msg_00041",
+        "msg_02807",
+        "msg_02412"
+      ],
+      "hit_rank": null,
+      "r1": 0.0,
+      "r5": 0.0,
+      "r10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "id": "eval_attr_01",
+      "query": "What did Rahul say about the budget?",
+      "category": "attributed",
+      "ground_truth": [
+        "msg_02263"
+      ],
+      "retrieved_top3": [
+        "msg_02263",
+        "msg_02278",
+        "msg_01627"
+      ],
+      "hit_rank": 1,
+      "r1": 1.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "eval_attr_02",
+      "query": "What did Priya suggest for the event venue?",
+      "category": "attributed",
+      "ground_truth": [
+        "msg_01625"
+      ],
+      "retrieved_top3": [
+        "msg_01625",
+        "msg_01641",
+        "msg_00026"
+      ],
+      "hit_rank": 1,
+      "r1": 1.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "eval_attr_03",
+      "query": "Show messages from Aman about Airbnb",
+      "category": "attributed",
+      "ground_truth": [
+        "msg_02273"
+      ],
+      "retrieved_top3": [
+        "msg_02273",
+        "msg_00989",
+        "msg_02224"
+      ],
+      "hit_rank": 1,
+      "r1": 1.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "eval_attr_04",
+      "query": "What did Vikram say about flight tickets?",
+      "category": "attributed",
+      "ground_truth": [
+        "msg_02267"
+      ],
+      "retrieved_top3": [
+        "msg_02267",
+        "msg_00294",
+        "msg_02190"
+      ],
+      "hit_rank": 1,
+      "r1": 1.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "eval_attr_05",
+      "query": "What did Sneha suggest regarding travel dates?",
+      "category": "attributed",
+      "ground_truth": [
+        "msg_02258"
+      ],
+      "retrieved_top3": [
+        "msg_00476",
+        "msg_04091",
+        "msg_01776"
+      ],
+      "hit_rank": null,
+      "r1": 0.0,
+      "r5": 0.0,
+      "r10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "id": "eval_attr_06",
+      "query": "What did Rahul mention about corporate discounts?",
+      "category": "attributed",
+      "ground_truth": [
+        "msg_01156"
+      ],
+      "retrieved_top3": [
+        "msg_01253",
+        "msg_01156",
+        "msg_00669"
+      ],
+      "hit_rank": 2,
+      "r1": 0.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 0.5
+    },
+    {
+      "id": "eval_attr_07",
+      "query": "What did Rohan say about monitor costs?",
+      "category": "attributed",
+      "ground_truth": [
+        "msg_01151"
+      ],
+      "retrieved_top3": [
+        "msg_02277",
+        "msg_01635",
+        "msg_01014"
+      ],
+      "hit_rank": null,
+      "r1": 0.0,
+      "r5": 0.0,
+      "r10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "id": "eval_attr_08",
+      "query": "What did Neha offer to manage for the party?",
+      "category": "attributed",
+      "ground_truth": [
+        "msg_01634"
+      ],
+      "retrieved_top3": [
+        "msg_01634",
+        "msg_01619",
+        "msg_03956"
+      ],
+      "hit_rank": 1,
+      "r1": 1.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "eval_attr_09",
+      "query": "What did Aman say about frontend coding for the hackathon?",
+      "category": "attributed",
+      "ground_truth": [
+        "msg_00031"
+      ],
+      "retrieved_top3": [
+        "msg_00027",
+        "msg_01164",
+        "msg_02910"
+      ],
+      "hit_rank": 10,
+      "r1": 0.0,
+      "r5": 0.0,
+      "r10": 1.0,
+      "rr": 0.1
+    },
+    {
+      "id": "eval_attr_10",
+      "query": "What did Kabir say about movie snacks?",
+      "category": "attributed",
+      "ground_truth": [
+        "msg_00009"
+      ],
+      "retrieved_top3": [
+        "msg_03180",
+        "msg_00009",
+        "msg_03623"
+      ],
+      "hit_rank": 2,
+      "r1": 0.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 0.5
+    },
+    {
+      "id": "eval_temp_01",
+      "query": "What did we discuss about the event in December?",
+      "category": "temporal",
+      "ground_truth": [
+        "msg_01619",
+        "msg_01616",
+        "msg_01625",
+        "msg_01641"
+      ],
+      "retrieved_top3": [
+        "msg_01619",
+        "msg_01649",
+        "msg_01934"
+      ],
+      "hit_rank": 1,
+      "r1": 1.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "eval_temp_02",
+      "query": "What happened during the first week of January?",
+      "category": "temporal",
+      "ground_truth": [
+        "msg_02258",
+        "msg_02254",
+        "msg_02263",
+        "msg_02281"
+      ],
+      "retrieved_top3": [
+        "msg_02258",
+        "msg_02157",
+        "msg_02255"
+      ],
+      "hit_rank": 1,
+      "r1": 1.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "eval_temp_03",
+      "query": "What tech hardware was purchased in November?",
+      "category": "temporal",
+      "ground_truth": [
+        "msg_01148",
+        "msg_01162",
+        "msg_01150",
+        "msg_01161"
+      ],
+      "retrieved_top3": [
+        "msg_01150",
+        "msg_01152",
+        "msg_01155"
+      ],
+      "hit_rank": 1,
+      "r1": 1.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "eval_temp_04",
+      "query": "What sports activity was booked in October?",
+      "category": "temporal",
+      "ground_truth": [
+        "msg_00001"
+      ],
+      "retrieved_top3": [
+        "msg_00001",
+        "msg_00506",
+        "msg_00135"
+      ],
+      "hit_rank": 1,
+      "r1": 1.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "eval_temp_05",
+      "query": "What movie was planned in early October?",
+      "category": "temporal",
+      "ground_truth": [
+        "msg_00004",
+        "msg_00009"
+      ],
+      "retrieved_top3": [
+        "msg_00650",
+        "msg_00175",
+        "msg_00119"
+      ],
+      "hit_rank": null,
+      "r1": 0.0,
+      "r5": 0.0,
+      "r10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "id": "eval_temp_06",
+      "query": "What hackathon project was organized in October?",
+      "category": "temporal",
+      "ground_truth": [
+        "msg_00031",
+        "msg_00029",
+        "msg_00027",
+        "msg_00030"
+      ],
+      "retrieved_top3": [
+        "msg_00027",
+        "msg_00222",
+        "msg_00441"
+      ],
+      "hit_rank": 1,
+      "r1": 1.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "eval_temp_07",
+      "query": "What festive dinner was organized in October?",
+      "category": "temporal",
+      "ground_truth": [
+        "msg_00401"
+      ],
+      "retrieved_top3": [
+        "msg_00243",
+        "msg_00345",
+        "msg_00295"
+      ],
+      "hit_rank": null,
+      "r1": 0.0,
+      "r5": 0.0,
+      "r10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "id": "eval_temp_08",
+      "query": "What celebration decision was locked in December?",
+      "category": "temporal",
+      "ground_truth": [
+        "msg_01641"
+      ],
+      "retrieved_top3": [
+        "msg_01641",
+        "msg_01694",
+        "msg_01922"
+      ],
+      "hit_rank": 1,
+      "r1": 1.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "eval_temp_09",
+      "query": "What river rafting trip was mentioned in October?",
+      "category": "temporal",
+      "ground_truth": [
+        "msg_00019"
+      ],
+      "retrieved_top3": [
+        "msg_00019",
+        "msg_00020",
+        "msg_00024"
+      ],
+      "hit_rank": 1,
+      "r1": 1.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "eval_temp_10",
+      "query": "What token payment was completed in December?",
+      "category": "temporal",
+      "ground_truth": [
+        "msg_01644"
+      ],
+      "retrieved_top3": [
+        "msg_01644",
+        "msg_01637",
+        "msg_02014"
+      ],
+      "hit_rank": 1,
+      "r1": 1.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "eval_zero_01",
+      "query": "Where will the group lodge for vacation?",
+      "category": "zero_overlap",
+      "ground_truth": [
+        "msg_02270",
+        "msg_02281"
+      ],
+      "retrieved_top3": [
+        "msg_02270",
+        "msg_02271",
+        "msg_04062"
+      ],
+      "hit_rank": 1,
+      "r1": 1.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "eval_zero_02",
+      "query": "Audio equipment responsibility",
+      "category": "zero_overlap",
+      "ground_truth": [
+        "msg_01633"
+      ],
+      "retrieved_top3": [
+        "msg_01633",
+        "msg_01626",
+        "msg_01308"
+      ],
+      "hit_rank": 1,
+      "r1": 1.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "eval_zero_03",
+      "query": "Celebration dessert preparation",
+      "category": "zero_overlap",
+      "ground_truth": [
+        "msg_01634"
+      ],
+      "retrieved_top3": [
+        "msg_01677",
+        "msg_01782",
+        "msg_01752"
+      ],
+      "hit_rank": null,
+      "r1": 0.0,
+      "r5": 0.0,
+      "r10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "id": "eval_zero_04",
+      "query": "Financial ceiling for lodging",
+      "category": "zero_overlap",
+      "ground_truth": [
+        "msg_02263"
+      ],
+      "retrieved_top3": [
+        "msg_02270",
+        "msg_02271",
+        "msg_01625"
+      ],
+      "hit_rank": 9,
+      "r1": 0.0,
+      "r5": 0.0,
+      "r10": 1.0,
+      "rr": 0.1111
+    },
+    {
+      "id": "eval_zero_05",
+      "query": "Screen hardware procurement conclusion",
+      "category": "zero_overlap",
+      "ground_truth": [
+        "msg_01161"
+      ],
+      "retrieved_top3": [
+        "msg_01150",
+        "msg_01152",
+        "msg_01155"
+      ],
+      "hit_rank": 5,
+      "r1": 0.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 0.2
+    },
+    {
+      "id": "eval_zero_06",
+      "query": "Beverage dispenser pouring cocoa",
+      "category": "zero_overlap",
+      "ground_truth": [
+        "msg_00013"
+      ],
+      "retrieved_top3": [
+        "msg_00013",
+        "msg_04027",
+        "msg_03151"
+      ],
+      "hit_rank": 1,
+      "r1": 1.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "eval_zero_07",
+      "query": "Water rapid paddling expedition",
+      "category": "zero_overlap",
+      "ground_truth": [
+        "msg_00019"
+      ],
+      "retrieved_top3": [
+        "msg_00019",
+        "msg_02275",
+        "msg_00020"
+      ],
+      "hit_rank": 1,
+      "r1": 1.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "eval_zero_08",
+      "query": "Athletic fitness tracking group created",
+      "category": "zero_overlap",
+      "ground_truth": [
+        "msg_00010"
+      ],
+      "retrieved_top3": [
+        "msg_01630",
+        "msg_01629",
+        "msg_01632"
+      ],
+      "hit_rank": null,
+      "r1": 0.0,
+      "r5": 0.0,
+      "r10": 0.0,
+      "rr": 0.0
+    },
+    {
+      "id": "eval_zero_09",
+      "query": "Financial claims submission deadline",
+      "category": "zero_overlap",
+      "ground_truth": [
+        "msg_00016"
+      ],
+      "retrieved_top3": [
+        "msg_00016",
+        "msg_00017",
+        "msg_00758"
+      ],
+      "hit_rank": 1,
+      "r1": 1.0,
+      "r5": 1.0,
+      "r10": 1.0,
+      "rr": 1.0
+    },
+    {
+      "id": "eval_zero_10",
+      "query": "Evening cinema theater eats",
+      "category": "zero_overlap",
+      "ground_truth": [
+        "msg_00009"
+      ],
+      "retrieved_top3": [
+        "msg_02922",
+        "msg_01189",
+        "msg_00986"
+      ],
+      "hit_rank": null,
+      "r1": 0.0,
+      "r5": 0.0,
+      "r10": 0.0,
+      "rr": 0.0
+    }
+  ]
+}
