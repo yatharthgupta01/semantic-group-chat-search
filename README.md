@@ -2,9 +2,9 @@
 
 > **Production-grade semantic search engine over multi-month group chat exports with dense vector similarity, conversational context expansion, participant attribution, and temporal filtering.**
 
-[![Tests](https://img.shields.io/badge/pytest-18%20passed-success?style=flat-square&logo=pytest)](file:///d:/ai/project/semantic-group-chat-search/tests)
-[![Evaluation](https://img.shields.io/badge/Recall%4010-73.3%25-blue?style=flat-square)](file:///d:/ai/project/semantic-group-chat-search/data/evaluation_results.json)
-[![MRR](https://img.shields.io/badge/MRR-0.625-blueviolet?style=flat-square)](file:///d:/ai/project/semantic-group-chat-search/data/evaluation_results.json)
+[![Tests](https://img.shields.io/badge/pytest-18%20passed-success?style=flat-square&logo=pytest)](tests)
+[![Evaluation](https://img.shields.io/badge/Recall%4010-73.3%25-blue?style=flat-square)](data/evaluation_results.json)
+[![MRR](https://img.shields.io/badge/MRR-0.625-blueviolet?style=flat-square)](data/evaluation_results.json)
 [![Model](https://img.shields.io/badge/Model-MiniLM--L12--v2%20(384--dim)-indigo?style=flat-square)](https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square)](LICENSE)
 
@@ -39,7 +39,7 @@ Modern messaging platforms (WhatsApp, Telegram, Slack) rely heavily on exact sub
 
 ## 3. Dataset Characteristics
 
-The system operates over a realistic, fully reproducible synthetic corpus generated via [`scripts/generate_dataset.py`](file:///d:/ai/project/semantic-group-chat-search/scripts/generate_dataset.py):
+The system operates over a realistic, fully reproducible synthetic corpus generated via [`scripts/generate_dataset.py`](scripts/generate_dataset.py):
 
 - **Volume**: **4,250 messages** structured across 15 conversation topics.
 - **Participants**: **9 active members** with distinct communication styles:
@@ -143,7 +143,7 @@ semantic-group-chat-search/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/<your-username>/semantic-group-chat-search.git
+git clone https://github.com/yatharthgupta01/semantic-group-chat-search.git
 cd semantic-group-chat-search
 ```
 
