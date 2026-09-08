@@ -67,7 +67,8 @@ def search_messages(
         "what", "when", "where", "which", "about", "from", "with", "this",
         "that", "there", "their", "have", "will", "would", "could", "should",
         "some", "them", "then", "into", "onto", "trip", "chat", "guys", "yaar",
-        "bhai", "karein", "hain", "kuch", "kya", "the", "and", "for"
+        "bhai", "karein", "hain", "kuch", "kya", "the", "and", "for", "say", "said",
+        "rahul", "priya", "aman", "sneha", "vikram", "neha", "rohan", "ananya", "kabir"
     }
     query_tokens = [w.lower() for w in re.findall(r"\b[a-zA-Z0-9_-]+\b", clean_query) if len(w) > 3 and w.lower() not in STOPWORDS]
 

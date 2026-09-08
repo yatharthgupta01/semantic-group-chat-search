@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semantic Group Chat Search</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Top Navigation & System Health Banner -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand">
+        <div class="brand-icon">🔍</div>
+        <div class="brand-text">
+          <h1>Semantic Group Chat Search</h1>
+          <p class="brand-subtitle">AI-Powered Dense Vector Retrieval over Multi-Month Group Chat History</p>
+        </div>
+      </div>
+      <div class="system-stats" id="systemStats">
+        <div class="stat-badge">
+          <span class="status-dot status-loading" id="healthDot"></span>
+          <span id="healthStatus">Connecting...</span>
+        </div>
+        <div class="stat-badge stat-detail" id="statMessages">
+          <span class="stat-label">Messages:</span>
+          <span class="stat-value">4,250</span>
+        </div>
+        <div class="stat-badge stat-detail" id="statModel">
+          <span class="stat-label">Model:</span>
+          <span class="stat-value">MiniLM-L12-v2</span>
+        </div>
+        <div class="stat-badge stat-detail" id="statDateRange">
+          <span class="stat-label">Span:</span>
+          <span class="stat-value">Oct 2025 – Mar 2026</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Search Container -->
+  <main class="main-container">
+    <!-- Search Bar & Controls -->
+    <section class="search-section">
+      <form id="searchForm" class="search-form">
+        <div class="search-bar-wrapper">
+          <span class="search-icon">🔎</span>
+          <input
+            type="text"
+            id="searchInput"
+            class="search-input"
+            placeholder="Search chat messages semantically (e.g., 'Where did we decide to stay for the trip?')..."
+            autocomplete="off"
+            spellcheck="false"
+            required
+          />
+          <button type="button" id="clearBtn" class="clear-btn" title="Clear input" aria-label="Clear input">✕</button>
+          <button type="submit" id="searchSubmitBtn" class="search-submit-btn">
+            <span class="btn-text">Search</span>
+            <span class="btn-spinner hidden"></span>
+          </button>
+        </div>
+      </form>
+
+      <!-- Demo Query Chips -->
+      <div class="demo-queries-container">
+        <div class="demo-label">
+          <span>⚡ Try Demo Queries:</span>
+        </div>
+        <div class="chips-wrapper">
+          <button type="button" class="query-chip" data-query="Where did we finally decide to stay for the trip?">
+            <span class="chip-tag tag-semantic">Semantic</span>
+            <span class="chip-text">"Where did we finally decide to stay for the trip?"</span>
+          </button>
+          <button type="button" class="query-chip" data-query="What did Rahul say about the budget?">
+            <span class="chip-tag tag-attributed">Attributed</span>
+            <span class="chip-text">"What did Rahul say about the budget?"</span>
+          </button>
+          <button type="button" class="query-chip" data-query="What did we discuss about the event in December?">
+            <span class="chip-tag tag-temporal">Temporal</span>
+            <span class="chip-text">"What did we discuss about the event in December?"</span>
+          </button>
+          <button type="button" class="query-chip" data-query="Where will the group lodge for vacation?">
+            <span class="chip-tag tag-zero-overlap">Zero-Overlap</span>
+            <span class="chip-text">"Where will the group lodge for vacation?"</span>
+          </button>
+          <button type="button" class="query-chip" data-query="Who handled sound gear setup?">
+            <span class="chip-tag tag-zero-overlap">Zero-Overlap</span>
+            <span class="chip-text">"Who handled sound gear setup?"</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Collapsible Advanced Filters -->
+      <div class="filters-container">
+        <button type="button" id="filterToggleBtn" class="filter-toggle-btn" aria-expanded="false">
+          <span class="toggle-icon">⚙️</span>
+          <span>Advanced Filters</span>
+          <span class="filter-indicator hidden" id="filterActiveBadge">0 active</span>
+          <span class="chevron-icon">▼</span>
+        </button>
+
+        <div id="filterPanel" class="filter-panel collapsed">
+          <div class="filter-grid">
+            <div class="filter-group">
+              <label for="senderFilter">Sender / Participant</label>
+              <select id="senderFilter" class="filter-select">
+                <option value="">All Members (9)</option>
+                <option value="Rahul Sharma">Rahul Sharma</option>
+                <option value="Priya Patel">Priya Patel</option>
+                <option value="Aman Verma">Aman Verma</option>
+                <option value="Sneha Reddy">Sneha Reddy</option>
+                <option value="Vikram Malhotra">Vikram Malhotra</option>
+                <option value="Neha Gupta">Neha Gupta</option>
+                <option value="Rohan Mehta">Rohan Mehta</option>
+                <option value="Ananya Iyer">Ananya Iyer</option>
+                <option value="Kabir Das">Kabir Das</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="dateFromFilter">Date From</label>
+              <input type="date" id="dateFromFilter" class="filter-input" min="2025-10-01" max="2026-03-31" />
+            </div>
+
+            <div class="filter-group">
+              <label for="dateToFilter">Date To</label>
+              <input type="date" id="dateToFilter" class="filter-input" min="2025-10-01" max="2026-03-31" />
+            </div>
+
+            <div class="filter-group">
+              <label for="topKFilter">Results Limit (Top K)</label>
+              <select id="topKFilter" class="filter-select">
+                <option value="5">Top 5 Results</option>
+                <option value="10" selected>Top 10 Results</option>
+                <option value="15">Top 15 Results</option>
+                <option value="25">Top 25 Results</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="filter-actions">
+            <button type="button" id="resetFiltersBtn" class="filter-btn reset-btn">Reset Filters</button>
+            <button type="button" id="applyFiltersBtn" class="filter-btn apply-btn">Apply & Search</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Query Analysis / Active Filters Meta Bar -->
+    <section id="queryMetaSection" class="query-meta-section hidden">
+      <div class="meta-header">
+        <div class="meta-left">
+          <span class="meta-title">Search Query:</span>
+          <span class="meta-query" id="metaQueryText"></span>
+        </div>
+        <div class="meta-right">
+          <span class="meta-count" id="metaResultsCount">0 results</span>
+          <span class="meta-latency" id="metaLatency"></span>
+        </div>
+      </div>
+      <div class="parsed-filters-bar" id="parsedFiltersBar">
+        <!-- Injected dynamically by JS -->
+      </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section">
+      <!-- Loading State -->
+      <div id="loadingState" class="state-container loading-state hidden">
+        <div class="loader-spinner"></div>
+        <h3>Searching 4,250 Messages...</h3>
+        <p>Computing dense embedding similarity and ranking relevant conversations</p>
+        <div class="skeleton-list">
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div id="emptyState" class="state-container empty-state hidden">
+        <div class="empty-icon">📭</div>
+        <h3>No matching chat messages found</h3>
+        <p>We couldn't find any messages matching your query or filter constraints.</p>
+        <p class="empty-tip">Try broader search terms, clearing the sender/date filters, or clicking one of the demo query chips above.</p>
+      </div>
+
+      <!-- Error State -->
+      <div id="errorState" class="state-container error-state hidden">
+        <div class="error-icon">⚠️</div>
+        <h3>Search Error</h3>
+        <p id="errorMessage">Unable to complete search request.</p>
+        <button type="button" id="retryBtn" class="retry-btn">Retry Search</button>
+      </div>
+
+      <!-- Initial / Welcome State -->
+      <div id="welcomeState" class="state-container welcome-state">
+        <div class="welcome-header">
+          <h2>Welcome to Semantic Group Chat Search</h2>
+          <p>Search beyond naive keywords. Retrieve decisions, conversations, and intent from 6 months of group chat history.</p>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🧠</div>
+            <h4>Semantic Understanding</h4>
+            <p>Finds messages by meaning and intent, overcoming paraphrasing, informal slang, and English/Hinglish code-mixing.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">👤</div>
+            <h4>Attributed Queries</h4>
+            <p>Detects participant names ("What did Rahul say...") and filters or boosts messages sent by that person.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📅</div>
+            <h4>Temporal Filtering</h4>
+            <p>Automatically resolves date references ("in December", "last week") and constrains retrieval to that timeframe.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">💬</div>
+            <h4>Context Expansion</h4>
+            <p>Expands each retrieved message with surrounding [-3, +2] messages from the chat thread to preserve conversational context.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results List -->
+      <div id="resultsList" class="results-list">
+        <!-- Rendered dynamically by JS -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <p>Semantic Group Chat Search Engine • FastAPI Backend • Sentence-Transformers (<code>paraphrase-multilingual-MiniLM-L12-v2</code>)</p>
+      <p class="footer-sub">Synthetic 4,250-Message Hinglish Corpus • 100% Local Inference</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
