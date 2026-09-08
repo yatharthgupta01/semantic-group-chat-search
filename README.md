@@ -216,7 +216,26 @@ Once running, access the services:
 
 ---
 
-## 11. Interactive Web UI & Demo Queries
+## 11. What Is Mocked vs. Real
+
+### Synthetic / Mocked
+- The chat dataset is synthetic and generated locally using `scripts/generate_dataset.py`.
+- Participant names, messages, timestamps, typos, Hinglish/code-mixing, forwarded text, and decision threads are generated test data.
+- The 45 evaluation queries and ground-truth message IDs are curated for benchmarking this synthetic corpus.
+- No real WhatsApp, Telegram, Slack, or other messaging account is connected.
+
+### Real / Implemented
+- Multilingual semantic embeddings and vector similarity retrieval are implemented locally.
+- Participant attribution and temporal query parsing are implemented.
+- Metadata filtering, re-ranking, and conversational context expansion are implemented.
+- The FastAPI backend and browser UI are functional and connected to the search pipeline.
+- Evaluation runs against the actual indexed corpus rather than hard-coded demo answers.
+
+### External Services
+- No paid API or LLM API is required for search.
+- The embedding model is downloaded from Hugging Face when the index is rebuilt.
+
+## 12. Interactive Web UI & Demo Queries
 
 The included browser interface allows testing semantic search, attributed filtering, and conversational context without third-party tooling:
 
@@ -238,7 +257,7 @@ The included browser interface allows testing semantic search, attributed filter
 
 ---
 
-## 12. Benchmark Evaluation & Results
+## 13. Benchmark Evaluation & Results
 
 The retrieval system is rigorously benchmarked against **45 curated ground-truth queries** divided into 4 core evaluation categories:
 
@@ -262,7 +281,7 @@ The retrieval system is rigorously benchmarked against **45 curated ground-truth
 
 ---
 
-## 13. System Limitations
+## 14. System Limitations
 
 1. **Semantic Ambiguity in Brief Messages**: Very short chat acknowledgments (e.g. *"Haan pakka"*, *"Cool"*, *"Yes"*) lack dense semantic information; without surrounding context expansion, their standalone vector representation is generic.
 2. **Multilingual Transliteration Variations**: Informal Hinglish features non-standard phonetic spellings (e.g., *"theek"* vs *"thik"*, *"achha"* vs *"acha"*). While `MiniLM-L12-v2` handles broad multilingual representations well, rare colloquial spellings can occasionally degrade similarity.
@@ -270,7 +289,7 @@ The retrieval system is rigorously benchmarked against **45 curated ground-truth
 
 ---
 
-## 14. Future Improvements
+## 15. Future Improvements
 
 - **Hybrid Cross-Encoder Re-Ranking**: Introducing a secondary cross-encoder (e.g., `cross-encoder/ms-marco-MiniLM-L-6-v2`) on top-25 candidates to further refine top-1 precision.
 - **Audio & Media Indexing**: Integrating OpenAI Whisper to transcribe voice notes into searchable text.
@@ -279,7 +298,7 @@ The retrieval system is rigorously benchmarked against **45 curated ground-truth
 
 ---
 
-## 15. Git Development History & Milestones
+## 16. Git Development History & Milestones
 
 The project was constructed following a disciplined milestone-driven git workflow:
 
